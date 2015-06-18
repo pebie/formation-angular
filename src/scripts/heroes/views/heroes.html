@@ -25,7 +25,12 @@
             ng-click="click(hero)"
             ng-class="{isSelected:hero.name==selectedHero.name}"
             class="hero-name">
-            <hero-info info="hero" status="{{hero.status}}" class="hero"/>
+            <article>
+                <h4>{{hero.name}} {{hero.age}} ans</h4>
+                <span>{{hero.description}}</span>
+                <img ng-src="{{hero.image}}">
+                <div status-info status="hero.status"></div>
+            </article>
         </li>
     </ul>
 </section>
