@@ -39,8 +39,13 @@
         <li ng-repeat="hero in heroes | orderBy:orderProp" class="ng-class-even:'even';ng-class-odd:'odd'"
             ng-click="click(hero)"
             ng-class="{isSelected:hero.name==selectedHero.name}"
-            class="hero-name">
-            <hero-info info="hero" status="{{hero.status}}" class="hero"/>
+            class="hero-block">
+            <span class="hero-name">{{hero.name}}</span>
+            <span>{{hero.description}}</span>
+            <span>Age : {{hero.age}}</span>
+            <img ng-src="{{hero.image}}">
+
+            <div status-info status="hero.status"></div>
         </li>
     </ul>
 </section>
@@ -54,7 +59,7 @@
 <script src="scripts/root.js"></script>
 <script src="scripts/heroes/controllers/heroes.js"></script>
 <script src="scripts/heroes/header.js"></script>
-<script src="scripts/heroes/directives/heroInfo.js"></script>
+<script src="scripts/directives/statusInfo.js"></script>
 <script src="scripts/core/services/urlConfig.js"></script>
 <script src="scripts/heroes/services/heroesFactory.js"></script>
 </body>
