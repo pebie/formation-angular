@@ -11,6 +11,7 @@
 
 <header ng-controller="HeaderCtrl">
     <h1>{{model.title | capitalize}}</h1>
+
     <h2>{{getTitle()}} : {{currentDate | date:'fullDate'}}</h2>
 </header>
 
@@ -39,8 +40,13 @@
         <li ng-repeat="hero in heroes | orderBy:orderProp" class="ng-class-even:'even';ng-class-odd:'odd'"
             ng-click="click(hero)"
             ng-class="{isSelected:hero.name==selectedHero.name}"
-            class="hero-name">
-            <hero-info info="hero" status="{{hero.status}}" class="hero"/>
+            class="hero-block">
+            <span class="hero-name">{{hero.name}}</span>
+            <span>{{hero.description}}</span>
+            <span>Age : {{hero.age}}</span>
+            <img ng-src="{{hero.image}}">
+
+            <div status-info status="hero.status"></div>
         </li>
     </ul>
 </section>
@@ -54,6 +60,6 @@
 <script src="scripts/controller/root.js"></script>
 <script src="scripts/controller/heroes.js"></script>
 <script src="scripts/controller/header.js"></script>
-<script src="scripts/directives/heroInfo.js"></script>
+<script src="scripts/directives/statusInfo.js"></script>
 </body>
 </html>
